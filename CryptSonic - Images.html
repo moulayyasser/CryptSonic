@@ -1,0 +1,529 @@
+
+<!-- saved from url=(0054)file:///Users/macbook/Downloads/ZcH1JTSWA00Z3h6RP.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><!--<base href="https://crypt-master.com/">--><base href=".">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CryptSonic - Advanced Encryption Platform</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link href="./Betatest_files/css2" rel="stylesheet">
+<style>
+  :root {
+    --primary-color: #10a37f;
+    --secondary-color: #f0f0f0;
+    --background-color: #ffffff;
+    --text-color: #353740;
+    --card-background: #f7f7f8;
+    --gradient-start: #10a37f;
+    --gradient-end: #0077b6;
+  }
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+  }
+  .main-header {
+    background-color: var(--background-color);
+    padding: 1rem 2rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+  }
+  .main-header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .main-header .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+  .main-header ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  .main-header ul li {
+    margin-left: 1.5rem;
+  }
+  .main-header ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  .main-header ul li a:hover {
+    color: var(--primary-color);
+  }
+  .banner {
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+    margin-top: 60px;
+  }
+  .banner h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  .banner p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+  }
+  .encrypt-section, .decrypt-section {
+    background-color: var(--card-background);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+  }
+  h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+  }
+  textarea, select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    font-size: 14px;
+    margin-bottom: 1rem;
+    transition: border-color 0.3s ease;
+  }
+  textarea:focus, select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+  }
+  button {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #0d8c6f;
+    transform: translateY(-2px);
+  }
+  .file-input-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
+  .file-input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+  }
+  .file-label {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+  }
+  .file-label:hover {
+    background-color: #e0e0e0;
+  }
+  #result, #result-decrypt {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    font-size: 14px;
+    word-break: break-all;
+    border: 1px solid #e5e5e5;
+  }
+  .scroll-buttons {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .scroll-button {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+  .scroll-button:hover {
+    background-color: #0d8c6f;
+    transform: translateY(-2px);
+  }
+  #preview-image, #preview-image-decrypt {
+    max-width: 100%;
+    margin-top: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+</style>
+</head>
+<body>
+<header class="main-header">
+  <nav>
+    <a href="CryptSonic - Accueil.html" class="logo">CryptSonic</a>
+    <ul>
+      <li><a href="CryptSonic - Accueil.html">Home</a></li>
+      <li><a href="CryptSonic - Features.html">Features</a></li>
+      <li><a href="CryptSonic - Pricing.html">Pricing</a></li>
+      <li><a href="CryptSonic - Encrypt.html">Encrypt</a></li>
+      <li><a href="CryptSonic - Decrypt.html">Decrypt</a></li>
+      <li><a href="CryptSonic - Images.html">Image (BETA)</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="banner">
+  <h1>Secure Your Images with CryptSonic</h1>
+  <p>Advanced encryption platform for Images and Text</p>
+</div>
+
+<div class="container">
+  <section class="encrypt-section" id="encrypt">
+    <h2>Encrypt</h2>
+    
+    <div class="file-input-wrapper">
+      <input type="file" id="input-file" class="file-input" accept=".txt,.jpg,.jpeg,.png,.gif">
+      <label for="input-file" class="file-label">Choisir un fichier</label>
+    </div>
+    <select id="encryption-type">
+      <option value="aes">AES-256</option>
+      <option value="blowfish">Blowfish</option>
+      <option value="twofish">Twofish</option>
+      <option value="serpent">Serpent</option>
+      <option value="sha256">SHA-256 (Hash)</option>
+    </select>
+    <button id="encrypt-btn">Encrypter</button>
+    <div id="result"></div>
+    <img id="preview-image" style="display:none;">
+    <button id="copy-btn" style="display:none;">Copier</button>
+    <button id="download-btn" style="display:none;">Télécharger</button>
+  </section>
+  
+  <section class="decrypt-section" id="decrypt">
+    <h2>Decrypt</h2>
+    
+    <div class="file-input-wrapper">
+      <input type="file" id="input-file-decrypt" class="file-input" accept=".txt,.jpg,.jpeg,.png,.gif">
+      <label for="input-file-decrypt" class="file-label">Choisir un fichier</label>
+    </div>
+    <select id="decryption-type">
+      <option value="aes">AES-256</option>
+      <option value="blowfish">Blowfish</option>
+      <option value="twofish">Twofish</option>
+      <option value="serpent">Serpent</option>
+      <option value="sha256">SHA-256 (Generate Hash)</option>
+    </select>
+    <button id="decrypt-btn">Décrypter</button>
+    <div id="result-decrypt"></div>
+    <img id="preview-image-decrypt" style="display:none;">
+    <button id="copy-decrypt-btn" style="display:none;">Copier le résultat</button>
+    <button id="download-decrypt-btn" style="display:none;">Télécharger le résultat</button>
+  </section>
+</div>
+
+<div class="scroll-buttons">
+  <button class="scroll-button" id="scroll-top">↑</button>
+  <button class="scroll-button" id="scroll-bottom">↓</button>
+</div>
+
+<script src="./Betatest_files/crypto-js.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const encryptBtn = document.getElementById('encrypt-btn');
+  const decryptBtn = document.getElementById('decrypt-btn');
+  const copyBtn = document.getElementById('copy-btn');
+  const downloadBtn = document.getElementById('download-btn');
+  const copyDecryptBtn = document.getElementById('copy-decrypt-btn');
+  const downloadDecryptBtn = document.getElementById('download-decrypt-btn');
+  const inputText = document.getElementById('input-text');
+  const inputFile = document.getElementById('input-file');
+  const inputDecrypt = document.getElementById('input-decrypt');
+  const inputFileDecrypt = document.getElementById('input-file-decrypt');
+  const result = document.getElementById('result');
+  const resultDecrypt = document.getElementById('result-decrypt');
+  const previewImage = document.getElementById('preview-image');
+  const previewImageDecrypt = document.getElementById('preview-image-decrypt');
+  const scrollTopBtn = document.getElementById('scroll-top');
+  const scrollBottomBtn = document.getElementById('scroll-bottom');
+
+  let currentFile = null;
+  let currentFileDecrypt = null;
+
+  function encrypt(data, method) {
+    if (method === 'sha256') {
+      return {
+        data: CryptoJS.SHA256(data).toString()
+      };
+    }
+
+    const key = CryptoJS.lib.WordArray.random(32);
+    let encrypted;
+
+    switch (method) {
+      case 'aes':
+        encrypted = CryptoJS.AES.encrypt(data, key.toString());
+        break;
+      case 'blowfish':
+        encrypted = CryptoJS.Blowfish.encrypt(data, key.toString());
+        break;
+      case 'twofish':
+        encrypted = CryptoJS.AES.encrypt(data, key.toString());
+        break;
+      case 'serpent':
+        encrypted = CryptoJS.TripleDES.encrypt(data, key.toString());
+        break;
+    }
+
+    return {
+      key: key.toString(),
+      data: encrypted.toString()
+    };
+  }
+
+  function decrypt(encryptedData, key, method) {
+    if (method === 'sha256') {
+      return CryptoJS.SHA256(encryptedData).toString();
+    }
+
+    let decrypted;
+
+    switch (method) {
+      case 'aes':
+        decrypted = CryptoJS.AES.decrypt(encryptedData, key);
+        break;
+      case 'blowfish':
+        decrypted = CryptoJS.Blowfish.decrypt(encryptedData, key);
+        break;
+      case 'twofish':
+        decrypted = CryptoJS.AES.decrypt(encryptedData, key);
+        break;
+      case 'serpent':
+        decrypted = CryptoJS.TripleDES.decrypt(encryptedData, key);
+        break;
+    }
+
+    return decrypted.toString(CryptoJS.enc.Utf8);
+  }
+
+  encryptBtn.addEventListener('click', () => {
+    const method = document.getElementById('encryption-type').value;
+
+    let encrypted;
+    if (currentFile && currentFile.type.startsWith('image/')) {
+      const reader = new FileReader();
+      reader.onload = function(event) {
+        encrypted = encrypt(event.target.result, method);
+        result.textContent = JSON.stringify(encrypted);
+        copyBtn.style.display = 'inline-block';
+        downloadBtn.style.display = 'inline-block';
+        previewImage.style.display = 'none';
+      };
+      reader.readAsDataURL(currentFile);
+    } else {
+      const text = inputText.value;
+      encrypted = encrypt(text, method);
+      result.textContent = JSON.stringify(encrypted);
+      copyBtn.style.display = 'inline-block';
+      downloadBtn.style.display = 'inline-block';
+      previewImage.style.display = 'none';
+    }
+  });
+
+  decryptBtn.addEventListener('click', () => {
+    const method = document.getElementById('decryption-type').value;
+
+    if (method === 'sha256') {
+      const input = inputDecrypt.value;
+      const hashed = CryptoJS.SHA256(input).toString();
+      resultDecrypt.textContent = `SHA-256 Hash: ${hashed}`;
+      previewImageDecrypt.style.display = 'none';
+      copyDecryptBtn.style.display = 'inline-block';
+      downloadDecryptBtn.style.display = 'inline-block';
+      return;
+    }
+
+    if (currentFileDecrypt && currentFileDecrypt.type.startsWith('image/')) {
+      const reader = new FileReader();
+      reader.onload = function(event) {
+        try {
+          const encryptedData = JSON.parse(event.target.result);
+          const decrypted = decrypt(encryptedData.data, encryptedData.key, method);
+          previewImageDecrypt.src = decrypted;
+          previewImageDecrypt.style.display = 'block';
+          resultDecrypt.textContent = '';
+          copyDecryptBtn.style.display = 'none';
+          downloadDecryptBtn.style.display = 'inline-block';
+        } catch (error) {
+          resultDecrypt.textContent = "Erreur lors du décryptage de l'image.";
+          previewImageDecrypt.style.display = 'none';
+          copyDecryptBtn.style.display = 'none';
+          downloadDecryptBtn.style.display = 'none';
+        }
+      };
+      reader.readAsText(currentFileDecrypt);
+    } else {
+      try {
+        const encryptedData = JSON.parse(inputDecrypt.value);
+        const decrypted = decrypt(encryptedData.data, encryptedData.key, method);
+        if (decrypted.startsWith('data:image')) {
+          previewImageDecrypt.src = decrypted;
+          previewImageDecrypt.style.display = 'block';
+          resultDecrypt.textContent = '';
+          copyDecryptBtn.style.display = 'none';
+        } else {
+          resultDecrypt.textContent = decrypted;
+          previewImageDecrypt.style.display = 'none';
+          copyDecryptBtn.style.display = 'inline-block';
+        }
+        downloadDecryptBtn.style.display = 'inline-block';
+      } catch (error) {
+        resultDecrypt.textContent = "Erreur lors du décryptage.";
+        previewImageDecrypt.style.display = 'none';
+        copyDecryptBtn.style.display = 'none';
+        downloadDecryptBtn.style.display = 'none';
+      }
+    }
+  });
+
+  copyBtn.addEventListener('click', () => {
+    navigator.clipboard.writeText(result.textContent)
+      .then(() => alert('Texte encrypté copié dans le presse-papiers!'))
+      .catch(err => console.error('Erreur lors de la copie:', err));
+  });
+
+  copyDecryptBtn.addEventListener('click', () => {
+    navigator.clipboard.writeText(resultDecrypt.textContent)
+      .then(() => alert('Texte décrypté copié dans le presse-papiers!'))
+      .catch(err => console.error('Erreur lors de la copie:', err));
+  });
+
+  function downloadFile(content, filename, type) {
+    const blob = new Blob([content], {type: type});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    a.style.display = 'none';
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(() => {
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }, 100);
+  }
+
+  downloadBtn.addEventListener('click', () => {
+    if (currentFile && currentFile.type.startsWith('image/')) {
+      downloadFile(result.textContent, 'encrypted_image.txt', 'text/plain');
+    } else {
+      downloadFile(result.textContent, 'encrypted_text.txt', 'text/plain');
+    }
+  });
+
+  downloadDecryptBtn.addEventListener('click', () => {
+    if (previewImageDecrypt.style.display === 'block') {
+      const link = document.createElement('a');
+      link.href = previewImageDecrypt.src;
+      link.download = 'decrypted_image.png';
+      link.click();
+    } else {
+      downloadFile(resultDecrypt.textContent, 'decrypted_text.txt', 'text/plain');
+    }
+  });
+
+  function readFile(file, callback) {
+    const reader = new FileReader();
+    reader.onload = (e) => callback(e.target.result);
+    if (file.type.startsWith('image/')) {
+      reader.readAsDataURL(file);
+    } else {
+      reader.readAsText(file);
+    }
+  }
+
+  inputFile.addEventListener('change', (e) => {
+    currentFile = e.target.files[0];
+    if (currentFile.type.startsWith('image/')) {
+      readFile(currentFile, (content) => {
+        previewImage.src = content;
+        previewImage.style.display = 'block';
+        inputText.style.display = 'none';
+      });
+    } else {
+      readFile(currentFile, (content) => {
+        inputText.value = content;
+        inputText.style.display = 'block';
+        previewImage.style.display = 'none';
+      });
+    }
+  });
+
+  inputFileDecrypt.addEventListener('change', (e) => {
+    currentFileDecrypt = e.target.files[0];
+    if (currentFileDecrypt.type.startsWith('image/')) {
+      readFile(currentFileDecrypt, (content) => {
+        inputDecrypt.style.display = 'none';
+        previewImageDecrypt.src = content;
+        previewImageDecrypt.style.display = 'block';
+      });
+    } else {
+      readFile(currentFileDecrypt, (content) => {
+        inputDecrypt.value = content;
+        inputDecrypt.style.display = 'block';
+        previewImageDecrypt.style.display = 'none';
+      });
+    }
+  });
+
+  scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  scrollBottomBtn.addEventListener('click', () => {
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+  });
+});
+</script>
+
+</body></html>

@@ -1,0 +1,583 @@
+
+<!-- saved from url=(0054)file:///Users/macbook/Downloads/L2PKAJgxFqGtiGy0M.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><!--<base href="https://crypt-master.com/#decrypt">--><base href=".">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CryptSonic - Advanced Decryption Platform | Decrypt</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link href="./CryptSonic - Decrypt_files/css2" rel="stylesheet">
+<script src="./CryptSonic - Decrypt_files/crypto-js.min.js"></script>
+<style>
+  :root {
+    --primary-color: #10a37f;
+    --secondary-color: #f0f0f0;
+    --background-color: #ffffff;
+    --text-color: #353740;
+    --card-background: #f7f7f8;
+    --gradient-start: #0077b6;
+    --gradient-end: #10a37f;
+  }
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+  }
+  .main-header {
+    background-color: var(--background-color);
+    padding: 1rem 2rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+  }
+  .main-header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .main-header .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+  .main-header ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  .main-header ul li {
+    margin-left: 1.5rem;
+  }
+  .main-header ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  .main-header ul li a:hover {
+    color: var(--primary-color);
+  }
+  .banner {
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+    margin-top: 60px;
+  }
+  .banner h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  .banner p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+  }
+  .decrypt-section {
+    background-color: var(--card-background);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+  }
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+  textarea, input[type="text"], input[type="file"], select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit;
+  }
+  button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 1rem;
+  }
+  button:hover {
+    background-color: #0c8d6d;
+  }
+  #result {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background-color: #e6f3ff;
+    border-radius: 4px;
+    word-break: break-all;
+  }
+  .tab-container {
+    display: flex;
+    margin-bottom: 1rem;
+  }
+  .tab {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    background-color: var(--secondary-color);
+    border: 1px solid #ccc;
+    border-bottom: none;
+    border-radius: 4px 4px 0 0;
+  }
+  .tab.active {
+    background-color: var(--card-background);
+    border-bottom: 1px solid var(--card-background);
+  }
+  .tab-content {
+    display: none;
+  }
+  .tab-content.active {
+    display: block;
+  }
+  .result-actions {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+  }
+  .copy-btn, .download-btn {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    border: 1px solid #ccc;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .copy-btn:hover, .download-btn:hover {
+    background-color: #e0e0e0;
+  }
+  #navigation-buttons {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  #navigation-buttons button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  #navigation-buttons button:hover {
+    background-color: #0c8d6d;
+  }
+</style>
+</head>
+<body>
+<header class="main-header">
+  <nav>
+    <a href="CryptSonic - Accueil.html" class="logo">CryptSonic</a>
+    <ul>
+      <li><a href="CryptSonic - Accueil.html">Home</a></li>
+      <li><a href="CryptSonic - Features.html">Features</a></li>
+      <li><a href="CryptSonic - Pricing.html">Pricing</a></li>
+      <li><a href="CryptSonic - Encrypt.html">Encrypt</a></li>
+      <li><a href="CryptSonic - Decrypt.html">Decrypt</a></li>
+      <li><a href="CryptSonic - Images.html">Image (BETA)</a></li>
+    </ul>
+  </nav>
+</header>
+<div class="banner">
+  <h1>Decrypt Your Data</h1>
+  <p>Recover your encrypted information with our advanced decryption tools</p>
+</div>
+<div class="container">
+  <section class="decrypt-section" id="decrypt">
+    <h2>Decryption Tool</h2>
+    <div class="tab-container">
+      <div class="tab active" data-tab="text">Text</div>
+      <div class="tab" data-tab="file">File</div>
+      
+    </div>
+    <div id="textTab" class="tab-content active">
+      <form id="decryptTextForm">
+        <div class="form-group">
+          <label for="textData">Enter text to decrypt:</label>
+          <textarea id="textData" rows="5" required=""></textarea>
+        </div>
+        <div class="form-group">
+          <label for="textMethod">Choose decryption method:</label>
+          <select id="textMethod" required="">
+            <option value="AES">AES</option>
+            <option value="DES">DES</option>
+            <option value="TripleDES">Triple DES</option>
+            <option value="Rabbit">Rabbit</option>
+            <option value="RC4">RC4</option>
+            <option value="SHA256">SHA256 (Hash Verification)</option>
+          </select>
+        </div>
+        <div class="form-group" id="textKeyGroup">
+          <label for="textKey">Enter decryption key:</label>
+          <input type="text" id="textKey" required="">
+        </div>
+        <div class="form-group" id="sha256VerifyGroup" style="display: none;">
+          <label for="sha256Original">Enter original text for SHA256 verification:</label>
+          <input type="text" id="sha256Original">
+        </div>
+        <button type="submit">Decrypt Text</button>
+      </form>
+    </div>
+    <div id="fileTab" class="tab-content">
+      <form id="decryptFileForm">
+        <div class="form-group">
+          <label for="fileInput">Select file to decrypt:</label>
+          <input type="file" id="fileInput" required="">
+        </div>
+        <div class="form-group">
+          <label for="fileMethod">Choose decryption method:</label>
+          <select id="fileMethod" required="">
+            <option value="AES">AES</option>
+            <option value="DES">DES</option>
+            <option value="TripleDES">Triple DES</option>
+            <option value="Rabbit">Rabbit</option>
+            <option value="RC4">RC4</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="fileKey">Enter decryption key:</label>
+          <input type="text" id="fileKey" required="">
+        </div>
+        <button type="submit">Decrypt File</button>
+      </form>
+    </div>
+    <div id="imageTab" class="tab-content">
+      <form id="decryptImageForm">
+        <div class="form-group">
+          <label for="encryptedDataInput">Enter encrypted image data:</label>
+          <textarea id="encryptedDataInput" rows="5"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="encryptedFileInput">Or upload encrypted image data (txt file):</label>
+          <input type="file" id="encryptedFileInput" accept=".txt">
+        </div>
+        <div class="form-group">
+          <label for="imageMethod">Choose decryption method:</label>
+          <select id="imageMethod" required="">
+            <option value="AES">AES</option>
+            <option value="DES">DES</option>
+            <option value="TripleDES">Triple DES</option>
+            <option value="Rabbit">Rabbit</option>
+            <option value="RC4">RC4</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="imageKey">Enter decryption key:</label>
+          <input type="text" id="imageKey" required="">
+        </div>
+        <button type="submit">Decrypt Image</button>
+      </form>
+    </div>
+    <div id="result"></div>
+  </section>
+</div>
+<div id="navigation-buttons">
+  <button id="go-up" title="Go to top">↑</button>
+  <button id="go-down" title="Go to bottom">↓</button>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const textForm = document.getElementById('decryptTextForm');
+  const fileForm = document.getElementById('decryptFileForm');
+  const imageForm = document.getElementById('decryptImageForm');
+  const textMethodSelect = document.getElementById('textMethod');
+  const textKeyGroup = document.getElementById('textKeyGroup');
+  const sha256VerifyGroup = document.getElementById('sha256VerifyGroup');
+  const tabs = document.querySelectorAll('.tab');
+  const tabContents = document.querySelectorAll('.tab-content');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tabContents.forEach(tc => tc.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById(`${tab.dataset.tab}Tab`).classList.add('active');
+    });
+  });
+
+  textMethodSelect.addEventListener('change', () => {
+    if (textMethodSelect.value === 'SHA256') {
+      textKeyGroup.style.display = 'none';
+      sha256VerifyGroup.style.display = 'block';
+    } else {
+      textKeyGroup.style.display = 'block';
+      sha256VerifyGroup.style.display = 'none';
+    }
+  });
+
+  textForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const data = document.getElementById('textData').value;
+    const method = textMethodSelect.value;
+    const key = document.getElementById('textKey').value;
+    let result = '';
+
+    try {
+      if (method === 'SHA256') {
+        const originalText = document.getElementById('sha256Original').value;
+        const hash = CryptoJS.SHA256(originalText).toString();
+        result = hash === data ? 'SHA256 hash verified successfully.' : 'SHA256 hash verification failed.';
+      } else {
+        switch (method) {
+          case 'AES':
+            result = CryptoJS.AES.decrypt(data, key).toString(CryptoJS.enc.Utf8);
+            break;
+          case 'DES':
+            result = CryptoJS.DES.decrypt(data, key).toString(CryptoJS.enc.Utf8);
+            break;
+          case 'TripleDES':
+            result = CryptoJS.TripleDES.decrypt(data, key).toString(CryptoJS.enc.Utf8);
+            break;
+          case 'Rabbit':
+            result = CryptoJS.Rabbit.decrypt(data, key).toString(CryptoJS.enc.Utf8);
+            break;
+          case 'RC4':
+            result = CryptoJS.RC4.decrypt(data, key).toString(CryptoJS.enc.Utf8);
+            break;
+          default:
+            throw new Error('Invalid decryption method');
+        }
+      }
+
+      document.getElementById('result').innerHTML = `
+        <h3>Decrypted Result:</h3>
+        <p>${result}</p>
+        <div class="result-actions">
+          <button class="copy-btn" onclick="copyToClipboard('${result}')">Copy to Clipboard</button>
+          <button class="download-btn" onclick="downloadResult('${result}', 'decrypted_text.txt')">Download as TXT</button>
+        </div>
+      `;
+    } catch (error) {
+      document.getElementById('result').innerHTML = `
+        <h3>Error:</h3>
+        <p>${error.message}</p>
+      `;
+    }
+  });
+
+  const isImage = (content) => {
+    return content.startsWith('data:image') || content.startsWith('\x89PNG') || content.startsWith('\xff\xd8\xff');
+  };
+
+  fileForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const fileInput = document.getElementById('fileInput');
+    const method = document.getElementById('fileMethod').value;
+    const key = document.getElementById('fileKey').value;
+
+    if (fileInput.files.length === 0) {
+      alert('Please select a file');
+      return;
+    }
+
+    const file = fileInput.files[0];
+    const reader = new FileReader();
+
+    reader.onload = function(e) {
+      const fileContent = e.target.result;
+      let result = '';
+
+      try {
+        switch (method) {
+          case 'AES':
+            result = CryptoJS.AES.decrypt(fileContent, key).toString(CryptoJS.enc.Utf8);
+            break;
+          case 'DES':
+            result = CryptoJS.DES.decrypt(fileContent, key).toString(CryptoJS.enc.Utf8);
+            break;
+          case 'TripleDES':
+            result = CryptoJS.TripleDES.decrypt(fileContent, key).toString(CryptoJS.enc.Utf8);
+            break;
+          case 'Rabbit':
+            result = CryptoJS.Rabbit.decrypt(fileContent, key).toString(CryptoJS.enc.Utf8);
+            break;
+          case 'RC4':
+            result = CryptoJS.RC4.decrypt(fileContent, key).toString(CryptoJS.enc.Utf8);
+            break;
+          default:
+            throw new Error('Invalid decryption method');
+        }
+
+        if (isImage(result)) {
+          document.getElementById('result').innerHTML = `
+            <h3>File Decrypted Successfully</h3>
+            <p>The decrypted content is an image:</p>
+            <img src="${result}" alt="Decrypted Image" style="max-width: 100%; height: auto;">
+            <div class="result-actions">
+              <button class="copy-btn" onclick="copyToClipboard('${result}')">Copy Image Data</button>
+              <button class="download-btn" onclick="downloadResult('${result}', 'decrypted_image.png', 'image/png')">Download as Image</button>
+            </div>
+          `;
+        } else {
+          document.getElementById('result').innerHTML = `
+            <h3>File Decrypted Successfully</h3>
+            <p>Decrypted content preview (first 100 characters):</p>
+            <p>${result.substring(0, 100)}...</p>
+            <div class="result-actions">
+              <button class="copy-btn" onclick="copyToClipboard('${result}')">Copy Full Result</button>
+              <button class="download-btn" onclick="downloadResult('${result}', 'decrypted_${file.name}')">Download Decrypted File</button>
+            </div>
+          `;
+        }
+      } catch (error) {
+        document.getElementById('result').innerHTML = `
+          <h3>Error:</h3>
+          <p>${error.message}</p>
+        `;
+      }
+    };
+
+    reader.readAsText(file);
+  });
+
+  imageForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const encryptedDataInput = document.getElementById('encryptedDataInput');
+    const encryptedFileInput = document.getElementById('encryptedFileInput');
+    const method = document.getElementById('imageMethod').value;
+    const key = document.getElementById('imageKey').value;
+
+    if (encryptedDataInput.value.trim() === '' && encryptedFileInput.files.length === 0) {
+      alert('Please enter encrypted data or upload a file');
+      return;
+    }
+
+    if (encryptedFileInput.files.length > 0) {
+      const file = encryptedFileInput.files[0];
+      const reader = new FileReader();
+
+      reader.onload = function(e) {
+        decryptImage(e.target.result.trim(), method, key);
+      };
+
+      reader.readAsText(file);
+    } else {
+      decryptImage(encryptedDataInput.value.trim(), method, key);
+    }
+  });
+
+  function decryptImage(encryptedData, method, key) {
+    let result = '';
+
+    try {
+      switch (method) {
+        case 'AES':
+          result = CryptoJS.AES.decrypt(encryptedData, key).toString(CryptoJS.enc.Utf8);
+          break;
+        case 'DES':
+          result = CryptoJS.DES.decrypt(encryptedData, key).toString(CryptoJS.enc.Utf8);
+          break;
+        case 'TripleDES':
+          result = CryptoJS.TripleDES.decrypt(encryptedData, key).toString(CryptoJS.enc.Utf8);
+          break;
+        case 'Rabbit':
+          result = CryptoJS.Rabbit.decrypt(encryptedData, key).toString(CryptoJS.enc.Utf8);
+          break;
+        case 'RC4':
+          result = CryptoJS.RC4.decrypt(encryptedData, key).toString(CryptoJS.enc.Utf8);
+          break;
+        default:
+          throw new Error('Invalid decryption method');
+      }
+
+      if (result.startsWith('data:image')) {
+        document.getElementById('result').innerHTML = `
+          <h3>Image Decrypted Successfully</h3>
+          <img src="${result}" alt="Decrypted Image" style="max-width: 100%; height: auto;">
+          <div class="result-actions">
+            <button class="copy-btn" onclick="copyToClipboard('${result}')">Copy Image Data</button>
+            <button class="download-btn" onclick="downloadResult('${result}', 'decrypted_image.png', 'image/png')">Download Decrypted Image</button>
+          </div>
+        `;
+      } else {
+        throw new Error('Decrypted data is not a valid image');
+      }
+    } catch (error) {
+      document.getElementById('result').innerHTML = `
+        <h3>Error:</h3>
+        <p>${error.message}</p>
+      `;
+    }
+  }
+
+  const goUpButton = document.getElementById('go-up');
+  const goDownButton = document.getElementById('go-down');
+
+  goUpButton.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  goDownButton.addEventListener('click', () => {
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+  });
+});
+
+function copyToClipboard(text) {
+  navigator.clipboard.writeText(text).then(() => {
+    const resultDiv = document.getElementById('result');
+    const message = document.createElement('div');
+    message.textContent = 'Copied to clipboard!';
+    message.style.color = 'green';
+    message.style.marginTop = '10px';
+    resultDiv.appendChild(message);
+    setTimeout(() => {
+      resultDiv.removeChild(message);
+    }, 2000);
+  }).catch(err => {
+    console.error('Failed to copy: ', err);
+  });
+}
+
+function downloadResult(content, filename, type = 'text/plain') {
+  const element = document.createElement('a');
+  if (type.startsWith('image')) {
+    element.setAttribute('href', content);
+  } else {
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(content));
+  }
+  element.setAttribute('download', filename);
+
+  element.style.display = 'none';
+  document.body.appendChild(element);
+
+  element.click();
+
+  document.body.removeChild(element);
+}
+</script>
+
+</body></html>
