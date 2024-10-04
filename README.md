@@ -1,12 +1,3 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2818
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww18060\viewh11740\viewkind0
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-
-\f0\fs24 \cf0 # CryptSonic\
-\
 ## Overview\
 **CryptSonic** is a powerful encryption and decryption platform that allows users to secure their text, files, and images using a variety of encryption algorithms, including the renowned **SHA-256**. With an intuitive interface and modern design, CryptSonic enables users to protect their data by encrypting it with customizable encryption keys, ensuring high levels of security. Decryption is just as simple and effective, giving users complete control over their secured information.\
 \
